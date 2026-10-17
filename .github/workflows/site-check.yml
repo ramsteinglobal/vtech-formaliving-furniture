@@ -1,0 +1,53 @@
+name: Basic Site Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  site-smoke-check:
+    name: Static site smoke check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify required site files
+        run: |
+          set -eu
+          test -s index.html
+          test -s style.css
+          test -s script.js
+
+      - name: Verify HTML references local CSS and JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+
+          class SiteRefs(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.styles = []
+                  self.scripts = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "link" and attrs.get("rel", "").lower() == "stylesheet":
+                      self.styles.append(attrs.get("href", ""))
+                  if tag == "script":
+                      self.scripts.append(attrs.get("src", ""))
+
+          parser = SiteRefs()
+          parser.feed(Path("index.html").read_text(encoding="utf-8"))
+          if not any(Path(ref.split("?")[0]).name == "style.css" for ref in parser.styles):
+              raise SystemExit("index.html does not reference style.css")
+          if not any(Path(ref.split("?")[0]).name == "script.js" for ref in parser.scripts):
+              raise SystemExit("index.html does not reference script.js")
+          print("Required files and local CSS/JS references look good.")
+          PY
