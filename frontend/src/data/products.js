@@ -1,0 +1,293 @@
+// Local fallback catalogue. Shape matches what GET /api/products should return.
+export const products = [
+ {
+  "id": 1,
+  "name": "Aranya Lounge Sofa",
+  "category": "living",
+  "price": 52900,
+  "mrp": 61000,
+  "image": "i7",
+  "pos": "center"
+ },
+ {
+  "id": 2,
+  "name": "Heritage Velvet Sofa",
+  "category": "living",
+  "price": 58500,
+  "mrp": 0,
+  "image": "i9",
+  "pos": "center"
+ },
+ {
+  "id": 3,
+  "name": "Olive Linen 3-Seater",
+  "category": "living",
+  "price": 46500,
+  "mrp": 54000,
+  "image": "i18",
+  "pos": "center"
+ },
+ {
+  "id": 4,
+  "name": "Regal Sofa & Armchair Set",
+  "category": "living",
+  "price": 89900,
+  "mrp": 102000,
+  "image": "i20",
+  "pos": "center"
+ },
+ {
+  "id": 5,
+  "name": "Ply Lounge Chairs (Pair)",
+  "category": "living",
+  "price": 19800,
+  "mrp": 0,
+  "image": "i16",
+  "pos": "center 70%"
+ },
+ {
+  "id": 6,
+  "name": "Cloud Modular Sofa",
+  "category": "living",
+  "price": 94500,
+  "mrp": 108000,
+  "image": "n3",
+  "pos": "center 60%"
+ },
+ {
+  "id": 7,
+  "name": "Lattice Room Divider Shelf",
+  "category": "living",
+  "price": 36500,
+  "mrp": 42000,
+  "image": "n8",
+  "pos": "center 55%"
+ },
+ {
+  "id": 8,
+  "name": "Nordic Sofa & Boucle Chair Set",
+  "category": "living",
+  "price": 68900,
+  "mrp": 79000,
+  "image": "n13",
+  "pos": "center"
+ },
+ {
+  "id": 9,
+  "name": "Tan Leather Chaise Sectional",
+  "category": "living",
+  "price": 84900,
+  "mrp": 96500,
+  "image": "n17",
+  "pos": "center 65%"
+ },
+ {
+  "id": 10,
+  "name": "Teak Platform Bed",
+  "category": "bedroom",
+  "price": 54900,
+  "mrp": 63500,
+  "image": "i6",
+  "pos": "center"
+ },
+ {
+  "id": 11,
+  "name": "Suite Bed with Drum Nightstand",
+  "category": "bedroom",
+  "price": 68000,
+  "mrp": 0,
+  "image": "i8",
+  "pos": "center"
+ },
+ {
+  "id": 12,
+  "name": "Rattan Headboard Bed",
+  "category": "bedroom",
+  "price": 57500,
+  "mrp": 66000,
+  "image": "i10",
+  "pos": "center 45%"
+ },
+ {
+  "id": 13,
+  "name": "Upholstered Wing Bed (King)",
+  "category": "bedroom",
+  "price": 64900,
+  "mrp": 74000,
+  "image": "i14",
+  "pos": "center"
+ },
+ {
+  "id": 14,
+  "name": "Nordic Panel Bed",
+  "category": "bedroom",
+  "price": 41900,
+  "mrp": 0,
+  "image": "i19",
+  "pos": "center"
+ },
+ {
+  "id": 15,
+  "name": "Velvet Panel Bed",
+  "category": "bedroom",
+  "price": 59900,
+  "mrp": 69000,
+  "image": "n2",
+  "pos": "center"
+ },
+ {
+  "id": 16,
+  "name": "Sage Platform Bed",
+  "category": "bedroom",
+  "price": 38900,
+  "mrp": 0,
+  "image": "n15",
+  "pos": "center 60%"
+ },
+ {
+  "id": 17,
+  "name": "Channel-Tufted King Bed",
+  "category": "bedroom",
+  "price": 76500,
+  "mrp": 88000,
+  "image": "n16",
+  "pos": "center 60%"
+ },
+ {
+  "id": 18,
+  "name": "Walnut Dining Table (8-Seater)",
+  "category": "dining",
+  "price": 82000,
+  "mrp": 94000,
+  "image": "i4",
+  "pos": "center 62%"
+ },
+ {
+  "id": 19,
+  "name": "Oak Dining Set (6-Seater)",
+  "category": "dining",
+  "price": 44900,
+  "mrp": 52000,
+  "image": "i12",
+  "pos": "center"
+ },
+ {
+  "id": 20,
+  "name": "Round Dining Table + 6 Chairs",
+  "category": "dining",
+  "price": 56500,
+  "mrp": 0,
+  "image": "i13",
+  "pos": "center"
+ },
+ {
+  "id": 21,
+  "name": "Café Wishbone Chairs (Set of 4)",
+  "category": "dining",
+  "price": 24800,
+  "mrp": 28500,
+  "image": "i15",
+  "pos": "center"
+ },
+ {
+  "id": 22,
+  "name": "Rustic Table + Rattan Chairs",
+  "category": "dining",
+  "price": 72500,
+  "mrp": 82000,
+  "image": "n9",
+  "pos": "center"
+ },
+ {
+  "id": 23,
+  "name": "Walnut Pedestal Dining Set",
+  "category": "dining",
+  "price": 69900,
+  "mrp": 79500,
+  "image": "n11",
+  "pos": "center 60%"
+ },
+ {
+  "id": 24,
+  "name": "Emerald Velvet Dining Set (8-Seater)",
+  "category": "dining",
+  "price": 91500,
+  "mrp": 105000,
+  "image": "n12",
+  "pos": "center"
+ },
+ {
+  "id": 25,
+  "name": "Farmhouse Table + 6 Chairs",
+  "category": "dining",
+  "price": 64900,
+  "mrp": 0,
+  "image": "n14",
+  "pos": "center"
+ },
+ {
+  "id": 26,
+  "name": "Cove Oval Desk",
+  "category": "office",
+  "price": 34500,
+  "mrp": 39500,
+  "image": "i2",
+  "pos": "center 62%"
+ },
+ {
+  "id": 27,
+  "name": "Duo Workstation Set",
+  "category": "office",
+  "price": 48900,
+  "mrp": 0,
+  "image": "i3",
+  "pos": "center"
+ },
+ {
+  "id": 28,
+  "name": "Studio Desk + Ergo Chair",
+  "category": "office",
+  "price": 29900,
+  "mrp": 34000,
+  "image": "i5",
+  "pos": "center 62%"
+ },
+ {
+  "id": 29,
+  "name": "Team Bench Desk (6-Seat)",
+  "category": "office",
+  "price": 96000,
+  "mrp": 112000,
+  "image": "i17",
+  "pos": "center 68%"
+ },
+ {
+  "id": 30,
+  "name": "Open-Plan Collab Desk",
+  "category": "office",
+  "price": 124000,
+  "mrp": 140000,
+  "image": "n1",
+  "pos": "center"
+ },
+ {
+  "id": 31,
+  "name": "Boardroom Table + Chairs",
+  "category": "office",
+  "price": 98500,
+  "mrp": 112000,
+  "image": "n5",
+  "pos": "center"
+ },
+ {
+  "id": 32,
+  "name": "Glass-Partition Lounge Seating",
+  "category": "office",
+  "price": 54900,
+  "mrp": 0,
+  "image": "n6",
+  "pos": "center"
+ }
+];
+
+export const bestSellers = [{"name": "Kalpa 3-Seater Sofa", "category": "living", "price": 48900, "mrp": 57500, "image": "sofa", "pos": "72% 60%"}, {"name": "Orbit Wooden Coffee Table", "category": "living", "price": 14500, "mrp": 0, "image": "liv", "pos": "30% 82%"}, {"name": "Lounge Swivel Chair", "category": "living", "price": 17800, "mrp": 21000, "image": "off", "pos": "62% 78%"}, {"name": "Maharani Tufted Bed (King)", "category": "bedroom", "price": 62000, "mrp": 72000, "image": "bed", "pos": "40% 45%"}, {"name": "Upholstered Bench", "category": "bedroom", "price": 11900, "mrp": 0, "image": "bed", "pos": "85% 85%"}, {"name": "Studded Nightstand", "category": "bedroom", "price": 15900, "mrp": 18500, "image": "bed", "pos": "8% 60%"}, {"name": "Sal 6-Seater Dining Table", "category": "dining", "price": 38500, "mrp": 44000, "image": "din", "pos": "48% 70%"}, {"name": "Cove Dining Chairs (Set of 2)", "category": "dining", "price": 16800, "mrp": 0, "image": "din", "pos": "25% 70%"}, {"name": "Nova Workstation Desk", "category": "office", "price": 21900, "mrp": 25500, "image": "off", "pos": "55% 55%"}];
