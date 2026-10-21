@@ -1,25 +1,27 @@
-import { Navigate, NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import PageHead from '../components/PageHead';
-import ProductCard from '../components/ProductCard';
+import ProductGrid from '../components/ProductGrid';
+import NotFound from './NotFound';
 import { categories, pageMeta } from '../data/site';
-import { getProducts } from '../api';
-import { products } from '../data/products';
-import { useApi } from '../hooks/useApi';
+import { useCatalogue } from '../store';
+import { useTitle } from '../hooks/useTitle';
 
 export default function Category() {
   const { slug } = useParams();
-  const all = useApi(getProducts, products);
-  if (!pageMeta[slug] || !categories.some((c) => c.slug === slug)) return <Navigate to="/shop" replace />;
-  const items = all.filter((p) => p.category === slug);
+  const { products } = useCatalogue();
+  const valid = slug === 'all' || categories.some((c) => c.slug === slug);
+  useTitle(valid ? pageMeta[slug][1] : 'Page not found', valid ? pageMeta[slug][2] : undefined);
+  if (!valid) return <NotFound />;
+  const items = slug === 'all' ? products : products.filter((p) => p.category === slug);
   return (
     <>
       <PageHead page={slug} />
       <section><div className="wrap">
         <div className="tabs">
-          <NavLink to="/shop" end>All</NavLink>
+          <NavLink to="/shop/all" className={({ isActive }) => (isActive ? 'on' : '')}>All</NavLink>
           {categories.map((c) => <NavLink key={c.slug} to={`/shop/${c.slug}`} className={({ isActive }) => (isActive ? 'on' : '')}>{c.label}</NavLink>)}
         </div>
-        <div className="pg">{items.map((p) => <ProductCard key={p.id ?? p.name} p={p} />)}</div>
+        <ProductGrid key={slug} items={items} />
       </div></section>
     </>
   );

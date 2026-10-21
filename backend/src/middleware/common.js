@@ -13,6 +13,10 @@ export function requireAdmin(req, res, next) {
   next();
 }
 
+export class HttpError extends Error {
+  constructor(status, message) { super(message); this.status = status; }
+}
+
 export const validate = (schema) => (req, _res, next) => { req.body = schema.parse(req.body); next(); };
 
 export const validId = (req, res, next) =>
@@ -26,6 +30,7 @@ export function errorHandler(err, _req, res, _next) {
     return res.status(400).json({ error: 'Validation failed', details: err.issues.map((i) => ({ field: i.path.join('.'), message: i.message })) });
   }
   if (err.type === 'entity.parse.failed') return res.status(400).json({ error: 'Invalid JSON' });
+  if (err instanceof HttpError) return res.status(err.status).json({ error: err.message });
   console.error(err);
   res.status(500).json({ error: 'Something went wrong' });
 }

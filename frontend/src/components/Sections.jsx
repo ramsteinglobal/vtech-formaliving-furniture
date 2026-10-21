@@ -28,12 +28,13 @@ function Stat({ end, decimals = 0, post = '', label }) {
 }
 
 export function Hero() {
-  const art = useRef(null);
-  const tilt = (e) => {
+  const move = (e) => {
     if (!matchMedia('(hover:hover)').matches) return;
-    const r = art.current.getBoundingClientRect();
-    art.current.style.transform = `perspective(900px) rotateY(${((e.clientX - r.left) / r.width - 0.5) * 6}deg) rotateX(${(0.5 - (e.clientY - r.top) / r.height) * 6}deg)`;
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${((e.clientX - r.left) / r.width - 0.5) * -18}px`);
+    e.currentTarget.style.setProperty('--my', `${((e.clientY - r.top) / r.height - 0.5) * -18}px`);
   };
+  const reset = (e) => { e.currentTarget.style.removeProperty('--mx'); e.currentTarget.style.removeProperty('--my'); };
   const words = [['Furniture'], ['that'], ['makes'], ['a'], ['house'], ['feel', 'em'], ['like', 'em'], ['home.', 'em']];
   let i = 0;
   const w = (t) => <span className="w" key={t + i}><i style={{ animationDelay: `${i++ * 70 + 200}ms` }}>{t}</i></span>;
@@ -46,13 +47,13 @@ export function Hero() {
           <em>{w('feel')} {w('like')} {w('home.')}</em>
         </h1>
         <p>Warm, honest pieces in solid wood and natural fabrics—designed to be lived in, passed down and loved for decades.</p>
-        <div className="cta"><Link className="btn" to="/shop">Shop collection</Link><Link className="btn ghost" to="/contact">Book a design visit</Link></div>
+        <div className="cta"><Link className="btn" to="/shop/all">Shop collection</Link><Link className="btn ghost" to="/contact">Book a design visit</Link></div>
         <div className="stats">
           <Stat end={12} post="k+" label="Happy homes" /><Stat end={4.9} decimals={1} post="★" label="Average rating" /><Stat end={10} post=" yr" label="Warranty" />
         </div>
       </Reveal>
       <Reveal className="art" >
-        <div ref={art} onMouseMove={tilt} onMouseLeave={() => (art.current.style.transform = '')} style={{ position: 'relative', height: '100%', transition: 'transform .2s ease-out' }}>
+        <div className="parallax" onMouseMove={move} onMouseLeave={reset} style={{ position: 'relative', height: '100%' }}>
           <Img k="liv" alt="Modern living room with grey sofa and wooden tables" pos="center 62%" />
           <div className="badge"><b>Free assembly</b>On every order</div>
         </div>

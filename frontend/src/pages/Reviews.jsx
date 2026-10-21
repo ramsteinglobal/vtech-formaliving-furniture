@@ -2,7 +2,10 @@ import PageHead from '../components/PageHead';
 import Reveal from '../components/Reveal';
 import { reviews } from '../data/site';
 
+import { useTitle } from '../hooks/useTitle';
+
 export default function Reviews() {
+  useTitle('Reviews');
   return (
     <>
       <PageHead page="reviews" />

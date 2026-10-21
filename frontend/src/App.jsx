@@ -6,6 +6,10 @@ import Category from './pages/Category';
 import Featured from './pages/Featured';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
+import Orders from './pages/Orders';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -14,10 +18,13 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
         <Route path="shop/:slug" element={<Category />} />
+        <Route path="product/:id" element={<ProductDetail />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="orders" element={<Orders />} />
         <Route path="featured" element={<Featured />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import products from './routes/products.js';
+import orders from './routes/orders.js';
 import enquiries from './routes/enquiries.js';
 import { errorHandler, notFound } from './middleware/common.js';
 
@@ -19,6 +20,7 @@ export function createApp() {
   app.get('/api/health', (_req, res) => res.json({ ok: true }));
   app.use('/api/products', products);
   app.use('/api/enquiries', enquiries);
+  app.use('/api/orders', orders);
 
   app.use(notFound);
   app.use(errorHandler);

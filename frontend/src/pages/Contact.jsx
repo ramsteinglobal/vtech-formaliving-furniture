@@ -7,7 +7,11 @@ import { sendEnquiry } from '../api';
 
 const interests = [...categories.map((c) => c.label), 'Kalpa 3-Seater Sofa'];
 
+import { useTitle } from '../hooks/useTitle';
+import { errorText } from '../api';
+
 export default function Contact() {
+  useTitle('Contact');
   const [params] = useSearchParams();
   const product = params.get('product');
   const blank = { name: '', phone: '', email: '', interest: interests[0], message: product ? `I’d like to order: ${product}.` : '' };
@@ -23,11 +27,7 @@ export default function Contact() {
       setForm(blank);
       setStatus({ state: 'ok', text: 'Thank you! We’ll be in touch shortly.' });
     } catch (err) {
-      const fix = err.details?.map((d) => d.message).join(' ');
-      const text = err.status === 400 && fix ? fix
-        : err.status === 429 ? 'Too many enquiries from this device. Please try again in a few minutes.'
-        : `We couldn’t send your enquiry. Email us at ${contact.email} instead.`;
-      setStatus({ state: 'error', text });
+      setStatus({ state: 'error', text: errorText(err, `We couldn’t send your enquiry. Email us at ${contact.email} instead.`) });
     }
   };
 
