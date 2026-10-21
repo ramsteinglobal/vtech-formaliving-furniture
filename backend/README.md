@@ -5,6 +5,7 @@ cp .env.example .env     # set MONGODB_URI and ADMIN_API_KEY
 npm install
 npm run seed             # loads the 41 products the frontend ships with
 npm run dev              # http://localhost:5000
+npm test                 # 9 tests, no database needed
 ```
 
 | Method | Path | Auth | Notes |
@@ -14,6 +15,9 @@ npm run dev              # http://localhost:5000
 | GET | `/api/products/:id` | – | |
 | POST / PATCH / DELETE | `/api/products[/:id]` | `x-api-key` | manage catalogue |
 | POST | `/api/enquiries` | – | contact form; 5 per IP / 15 min |
+| POST | `/api/orders` | – | `{ name, email, phone, address, city, pincode, items:[{productId, qty}] }`; price is taken from the database; 10 per IP / 15 min |
+| GET | `/api/orders` | `x-api-key` | `?status=new\|confirmed\|shipped\|delivered\|cancelled` |
+| PATCH | `/api/orders/:id` | `x-api-key` | body `{ "status": "confirmed" }` |
 | GET | `/api/enquiries` | `x-api-key` | `?status=new` |
 | PATCH | `/api/enquiries/:id` | `x-api-key` | body `{ "status": "contacted" }` |
 

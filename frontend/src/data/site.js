@@ -36,6 +36,9 @@ export const reviews = [
 ];
 
 export const pageMeta = {
+  all: ['All products', 'All products', 'Every piece in the Forma Living collection.'],
+  cart: ['Cart', 'Your cart', 'Review your pieces and tell us where to deliver.'],
+  orders: ['Orders', 'Track your order', 'See where your furniture is, from confirmation to delivery.'],
   shop: ['Shop', 'Shop the collection', 'Browse every room, crafted in solid wood and natural fabrics.'],
   featured: ['Featured', 'Featured product', 'Our bestselling sofa, in detail.'],
   reviews: ['Reviews', 'Customer reviews', 'What 12,000+ happy homes say about Forma Living.'],
