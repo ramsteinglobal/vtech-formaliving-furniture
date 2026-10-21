@@ -33,6 +33,8 @@ Open `index.html` in a browser, or serve this directory with any static web serv
 
 This site can be hosted by GitHub Pages or any static hosting provider. For GitHub Pages, select the intended branch and root folder in the repository's Pages settings.
 
+https://vtech-formaliving-furniture-q832.vercel.app/
+
 ## Notes
 
 This is a front-end starter. Contact links use email and no backend or appointment, reservation, or enquiry processing is configured.
