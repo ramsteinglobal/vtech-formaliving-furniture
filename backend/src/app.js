@@ -26,3 +26,7 @@ export function createApp() {
   app.use(errorHandler);
   return app;
 }
+
+// Vercel needs the Express app itself as the default export.
+const app = createApp();
+export default app;
